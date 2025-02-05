@@ -2,20 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fade In */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
 }
 
 .animate-fade-in {
   animation: fadeIn 1s ease-out;
 }
 
+/* Slide Up */
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
 .animate-slide-up {
   animation: slideUp 1s ease-out;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  animation: typing 3s steps(40) infinite alternate;
+}
+
+/* Glowing Effect */
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.6); }
+  100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); }
+}
+
+.animate-glow {
+  animation: glow 2s infinite alternate;
+}
+
+/* Glitch Hover Effect */
+.glitch-effect:hover {
+  text-shadow: 2px 2px red, -2px -2px cyan;
+}
+
+/* Tech Glow Effect for Project Cards */
+@keyframes techGlow {
+  0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); }
+  100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
+}
+
+.animate-tech-glow {
+  animation: techGlow 2.5s infinite alternate;
 }

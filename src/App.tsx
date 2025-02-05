@@ -1,6 +1,5 @@
 import { Menu, Github, Linkedin, Mail, Instagram, Facebook } from "lucide-react";
 import profileImage from "./images/image1.jpg";
-import resume from "./pdf/Udanpasindu.pdf";
 
 function App() {
   return (
@@ -8,7 +7,7 @@ function App() {
       {/* Header */}
       <header className="fixed w-full bg-black/30 backdrop-blur-sm z-50">
         <nav className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-white">Udan Pasindu</h1>
+          <h1 className="text-2xl font-bold text-white glitch-effect">Udan Pasindu</h1>
           <Menu className="text-white md:hidden" />
           <div className="hidden md:flex gap-6 text-gray-300">
             <a href="#home" className="hover:text-blue-400 transition">Home</a>
@@ -22,29 +21,29 @@ function App() {
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex flex-col items-center justify-center text-center px-4">
         <div className="animate-fade-in-up">
-          {/* Photo */}
+          {/* Profile Image */}
           <div className="flex justify-center mb-6">
             <img
               src={profileImage}
               alt="Udan Pasindu"
-              className="w-40 h-40 rounded-full border-4 border-blue-500 shadow-lg"
+              className="w-40 h-40 rounded-full border-4 border-blue-500 shadow-lg animate-float"
             />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">Udan Pasindu</h1>
-          <p className="text-xl text-gray-300 mb-8 animate-slide-up">Software Engineering Student at SLIIT</p>
-          {/* Resume Download Button */}
+          <p className="text-xl text-gray-300 mb-8 animate-typing border-r-4 border-white pr-3">
+            Software Engineering Student at SLIIT
+          </p>
+
+          {/* Resume Button */}
           <a
-  href="/pdf/Udanpasindu.pdf"
-  download="Udan_Pasindu_Resume.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition shadow-md animate-fade-in-up"
->
-  Download Resume
-</a>
-
-
-
+            href="/pdf/Udanpasindu.pdf"
+            download="Udan_Pasindu_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition shadow-md animate-fade-in-up"
+          >
+            Download Resume
+          </a>
         </div>
       </section>
 
@@ -53,32 +52,9 @@ function App() {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-12 animate-slide-up">Skills</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-700 p-6 rounded-lg shadow-lg animate-fade-in-up">
-              <h3 className="text-2xl font-bold text-white mb-4">Frontend</h3>
-              <ul className="text-gray-300 space-y-2">
-                <li>React</li>
-                <li>JavaScript</li>
-                <li>TypeScript</li>
-              </ul>
-            </div>
-            <div className="bg-gray-700 p-6 rounded-lg shadow-lg animate-fade-in-up">
-              <h3 className="text-2xl font-bold text-white mb-4">Backend</h3>
-              <ul className="text-gray-300 space-y-2">
-                <li>Node.js</li>
-                <li>MongoDB</li>
-                <li>Express</li>
-                <li>MySQL</li>
-              </ul>
-            </div>
-            <div className="bg-gray-700 p-6 rounded-lg shadow-lg animate-fade-in-up">
-              <h3 className="text-2xl font-bold text-white mb-4">Tools</h3>
-              <ul className="text-gray-300 space-y-2">
-                <li>Git & GitHub</li>
-                <li>VS Code</li>
-                <li>Android Studio</li>
-                <li>Linux</li>
-              </ul>
-            </div>
+            <SkillCard title="Frontend" skills={["React", "JavaScript", "TypeScript"]} />
+            <SkillCard title="Backend" skills={["Node.js", "MongoDB", "Express", "MySQL"]} />
+            <SkillCard title="Tools" skills={["Git & GitHub", "VS Code", "Android Studio", "Linux"]} />
           </div>
         </div>
       </section>
@@ -88,7 +64,6 @@ function App() {
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-white mb-12 text-center animate-slide-up">Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* All Projects */}
             <ProjectCard
               title="Spice Management System"
               description="Streamlines spice production and user purchasing with administrative tools."
@@ -107,24 +82,6 @@ function App() {
               tech="Java, CSS, PHP"
               link="https://github.com/Udanpasindu/E-Channeling--Site.git"
             />
-            <ProjectCard
-              title="Task Management App (ToDo)"
-              description="Boosts productivity by organizing tasks with filtering and classification."
-              tech="Kotlin, Android Studio"
-              link="https://github.com/Udanpasindu/To-Do-App.git"
-            />
-            <ProjectCard
-              title="Dice Game"
-              description="A fun dice game with rounds, scoring, and AI competition."
-              tech="Kotlin, Android Studio"
-              link="https://github.com/Udanpasindu/Dice-game.git"
-            />
-            <ProjectCard
-              title="Mobile Seller App"
-              description="A marketplace for mobile phones with a vast catalog and secure payments."
-              tech="Kotlin, Android Studio"
-              link="https://github.com/Udanpasindu/Mobile-Seller-App.git"
-            />
           </div>
         </div>
       </section>
@@ -139,16 +96,24 @@ function App() {
   );
 }
 
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  tech: string;
-  link: string;
+// Skill Card Component
+function SkillCard({ title, skills }: { title: string; skills: string[] }) {
+  return (
+    <div className="bg-gray-700 p-6 rounded-lg shadow-lg animate-glow hover:scale-105 transition">
+      <h3 className="text-2xl font-bold text-white mb-4">{title}</h3>
+      <ul className="text-gray-300 space-y-2">
+        {skills.map((skill) => (
+          <li key={skill}>{skill}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-function ProjectCard({ title, description, tech, link }: ProjectCardProps) {
+// Project Card Component
+function ProjectCard({ title, description, tech, link }: { title: string; description: string; tech: string; link: string }) {
   return (
-    <div className="bg-gray-800/50 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300">
+    <div className="bg-gray-800/50 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 animate-tech-glow">
       <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
       <p className="text-gray-300 mb-4">{description}</p>
       <p className="text-blue-400 mb-4">{tech}</p>
