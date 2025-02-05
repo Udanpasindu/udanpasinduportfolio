@@ -2,74 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fade In */
+/* Fade In Animation */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 .animate-fade-in {
   animation: fadeIn 1s ease-out;
 }
 
-/* Slide Up */
+/* Slide Up Animation */
 @keyframes slideUp {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
-
 .animate-slide-up {
   animation: slideUp 1s ease-out;
 }
 
-/* Floating Animation */
+/* Bounce Animation for Buttons */
+@keyframes bounceOnce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+.animate-bounce-once {
+  animation: bounceOnce 0.6s ease-in-out;
+}
+
+/* Cyber Glowing Effect */
+@keyframes glow {
+  0% { box-shadow: 0 0 5px #00f6ff, 0 0 10px #00f6ff; }
+  50% { box-shadow: 0 0 15px #00f6ff, 0 0 30px #00f6ff; }
+  100% { box-shadow: 0 0 5px #00f6ff, 0 0 10px #00f6ff; }
+}
+.glowing-text {
+  color: #00f6ff;
+  text-shadow: 0 0 5px #00f6ff, 0 0 10px #00f6ff;
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Floating Effect for Profile Image */
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
-
-.animate-float {
+.float {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Typing Animation */
+/* Typing Effect */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
 }
-
-.animate-typing {
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.typing-text {
   display: inline-block;
   overflow: hidden;
+  border-right: 3px solid white;
   white-space: nowrap;
-  width: 100%;
-  animation: typing 3s steps(40) infinite alternate;
+  animation: typing 3s steps(40) forwards, blink 0.75s step-end infinite;
 }
 
-/* Glowing Effect */
-@keyframes glow {
-  0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); }
-  50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.6); }
-  100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); }
+/* Hover Glow Effect on Links */
+.link-hover {
+  transition: color 0.3s ease-in-out;
+}
+.link-hover:hover {
+  color: #00f6ff;
+  text-shadow: 0 0 5px #00f6ff, 0 0 10px #00f6ff;
 }
 
-.animate-glow {
-  animation: glow 2s infinite alternate;
+/* Project Card Hover Effect */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* Glitch Hover Effect */
-.glitch-effect:hover {
-  text-shadow: 2px 2px red, -2px -2px cyan;
-}
-
-/* Tech Glow Effect for Project Cards */
-@keyframes techGlow {
-  0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); }
-  100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
-}
-
-.animate-tech-glow {
-  animation: techGlow 2.5s infinite alternate;
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 246, 255, 0.4);
 }

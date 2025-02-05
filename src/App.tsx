@@ -29,21 +29,22 @@ function App() {
               className="w-40 h-40 rounded-full border-4 border-blue-500 shadow-lg animate-float"
             />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">Udan Pasindu</h1>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">Udan Pasindu Jayasekara</h1>
           <p className="text-xl text-gray-300 mb-8 animate-typing border-r-4 border-white pr-3">
             Software Engineering Student at SLIIT
           </p>
 
           {/* Resume Button */}
           <a
-            href="/pdf/Udanpasindu.pdf"
-            download="Udan_Pasindu_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition shadow-md animate-fade-in-up"
-          >
-            Download Resume
-          </a>
+  href="/pdf/Udanpasindu.pdf"
+  download="Udan_Pasindu_Resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition shadow-md animate-fade-in-up"
+>
+  Download Resume
+</a>
+
         </div>
       </section>
 
