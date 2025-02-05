@@ -1,6 +1,7 @@
-import { Menu, Github, Linkedin, Mail, Instagram, Facebook } from "lucide-react";
+import { motion } from "framer-motion";
+import { Menu, Github, Linkedin, Mail } from "lucide-react";
 import profileImage from "./images/image1.jpg";
-import resume from "./assets/Udanpasindujayasekara.pdf"; // Import resume
+import resume from "./Assets/Udanpasindujayasekara.pdf";
 
 function App() {
   return (
@@ -21,31 +22,152 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-        <div>
-          {/* Profile Image */}
-          <div className="flex justify-center mb-6">
+        <motion.div 
+          className="animate-fade-in-up"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          {/* Profile Image with Floating Effect */}
+          <motion.div 
+            className="flex justify-center mb-6"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+          >
             <img
               src={profileImage}
               alt="Udan Pasindu"
               className="w-40 h-40 rounded-full border-4 border-blue-500 shadow-lg"
             />
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">Udan Pasindu Jayasekara</h1>
+          </motion.div>
+          
+          {/* Name Animation */}
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold text-white mb-6"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
+            Udan Pasindu Jayasekara
+          </motion.h1>
+          
+          {/* Description */}
           <p className="text-xl text-gray-300 mb-8">
             Software Engineering Student at SLIIT
           </p>
-
-          {/* Download Resume Button */}
-          <a
-            href={resume} // Link to the PDF
+          
+          {/* Download Resume Button with Hover Effect */}
+          <motion.a
+            href={resume}
             download="Udanpasindujayasekara.pdf"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition shadow-md"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md transition-transform"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
             Download Resume
-          </a>
+          </motion.a>
+        </motion.div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 px-4 bg-gray-800">
+        <div className="container mx-auto text-center">
+          <motion.h2
+            className="text-3xl font-bold text-white mb-12"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            Skills
+          </motion.h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <SkillCard title="Frontend" skills={["React", "JavaScript", "TypeScript"]} />
+            <SkillCard title="Backend" skills={["Node.js", "MongoDB", "Express", "MySQL"]} />
+            <SkillCard title="Tools" skills={["Git & GitHub", "VS Code", "Android Studio", "Linux"]} />
+          </div>
         </div>
       </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-4">
+        <div className="container mx-auto">
+          <motion.h2
+            className="text-3xl font-bold text-white mb-12 text-center"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            Projects
+          </motion.h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <ProjectCard
+              title="Spice Management System"
+              description="Streamlines spice production and user purchasing with administrative tools."
+              tech="MERN Stack (React, Node.js, MongoDB, Express)"
+              link="https://github.com/Udanpasindu/Spice-Management-System.git"
+            />
+            <ProjectCard
+              title="Movie Ticket Booking System"
+              description="Web application for booking and managing movie tickets online."
+              tech="HTML, CSS, PHP"
+              link="https://github.com/Udanpasindu/Movie-Ticket-Booking-System.git"
+            />
+            <ProjectCard
+              title="E-Channeling Web Application"
+              description="Allows customers to book doctor appointments and manage reservations."
+              tech="Java, CSS, PHP"
+              link="https://github.com/Udanpasindu/E-Channeling--Site.git"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black/30 text-gray-400 py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p>© 2024 Udan Pasindu. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
+  );
+}
+
+// Skill Card Component with Glowing Effect
+function SkillCard({ title, skills }: { title: string; skills: string[] }) {
+  return (
+    <motion.div 
+      className="relative bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 text-center transition-all"
+      whileHover={{
+        scale: 1.1,
+        boxShadow: "0px 0px 20px rgba(0, 255, 255, 0.8)",
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-30 blur-lg rounded-lg"></div>
+
+      <h3 className="text-2xl font-bold text-white mb-4 relative z-10">{title}</h3>
+      <ul className="text-gray-300 space-y-2 relative z-10">
+        {skills.map((skill) => (
+          <li key={skill}>{skill}</li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+}
+
+// Project Card Component with Hover Animation
+function ProjectCard({ title, description, tech, link }: { title: string; description: string; tech: string; link: string }) {
+  return (
+    <motion.div 
+      className="bg-gray-800/50 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300"
+      whileHover={{ scale: 1.05 }}
+    >
+      <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
+      <p className="text-gray-300 mb-4">{description}</p>
+      <p className="text-blue-400 mb-4">{tech}</p>
+      <a href={link} target="_blank" rel="noopener noreferrer" className="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition">
+        View Project
+      </a>
+    </motion.div>
   );
 }
 
