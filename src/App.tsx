@@ -118,14 +118,111 @@ function App() {
               tech="Java, CSS, PHP"
               link="https://github.com/Udanpasindu/E-Channeling--Site.git"
             />
+            <ProjectCard
+              title="Task Management Mobile Application- ToDo"
+              description="Developed a task management app to help users organize daily activities with features like task categorization, prioritization, and reminders. Users can track task completion and filter tasks by due dates or categories. 
+              The app offers an intuitive UI/UX and offline accessibility with local database storage.."
+              tech="Kotlin, Android Studio"
+              link="https://github.com/Udanpasindu/To-Do-App.git"
+            />
+            <ProjectCard
+              title=" Gaming Mobile Application –Dice Game"
+              description="Developed an interactive dice game where users compete against a computer in a five-round battle. Features include customizable winning scores, a real-time score counter, and a turn-based system. Designed with an
+               engaging UI and smooth animations for an immersive experience."
+              tech="Kotlin, Android Studio"
+              link="https://github.com/Udanpasindu/Dice-game.git"
+            />
+            <ProjectCard
+              title="Marketplace Mobile Application –Mobile Seller"
+              description="Developed a mobile commerce app for browsing, comparing, and purchasing mobile phones. Features include secure payments, personalized recommendations, wish lists, and order tracking. 
+              An admin panel allows efficient product and inventory management."
+              tech="Kotlin, Android Studio"
+              link="https://github.com/Udanpasindu/Mobile-Seller-App.git"
+            />
           </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4 bg-gray-800">
+        <div className="container mx-auto text-center">
+          <motion.h2
+            className="text-3xl font-bold text-white mb-12"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            Contact
+          </motion.h2>
+
+          <div className="flex justify-center gap-8 mb-12">
+            {/* Social Icons */}
+            <a href="https://github.com/Udanpasindu" target="_blank" rel="noopener noreferrer">
+              <motion.div
+                className="text-white p-4 rounded-full bg-blue-600 hover:bg-blue-700 transition"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Github className="w-6 h-6" />
+              </motion.div>
+            </a>
+            <a href="https://www.linkedin.com/in/udanpasindu/" target="_blank" rel="noopener noreferrer">
+              <motion.div
+                className="text-white p-4 rounded-full bg-blue-600 hover:bg-blue-700 transition"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Linkedin className="w-6 h-6" />
+              </motion.div>
+            </a>
+            <a href="mailto:udanpasindu934@gmail.com" target="_blank" rel="noopener noreferrer">
+              <motion.div
+                className="text-white p-4 rounded-full bg-blue-600 hover:bg-blue-700 transition"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Mail className="w-6 h-6" />
+              </motion.div>
+            </a>
+          </div>
+
+          {/* Contact Form */}
+          <motion.div
+            className="max-w-lg mx-auto bg-gray-700 p-8 rounded-lg shadow-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <form>
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full p-3 mb-4 rounded-md bg-gray-600 text-white"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full p-3 mb-4 rounded-md bg-gray-600 text-white"
+              />
+              <textarea
+                placeholder="Your Message"
+                className="w-full p-3 mb-4 rounded-md bg-gray-600 text-white"
+              />
+              <button
+                type="submit"
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition"
+              >
+                Send Message
+              </button>
+            </form>
+          </motion.div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="bg-black/30 text-gray-400 py-8">
         <div className="container mx-auto px-4 text-center">
-          <p>© 2024 Udan Pasindu. All rights reserved.</p>
+          <p>© 2025 Udan Pasindu. All rights reserved.</p>
         </div>
       </footer>
     </div>
