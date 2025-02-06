@@ -69,6 +69,30 @@ function App() {
         </motion.div>
       </section>
 
+       {/* About Me Section */}
+       <section id="about" className="py-20 px-4 bg-gray-800 flex flex-col items-center text-center">
+        <motion.h2
+          className="text-3xl font-bold text-white mb-6"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+        >
+          About Me
+        </motion.h2>
+        <motion.p
+          className="text-lg text-gray-300 max-w-2xl"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Innovative and driven third-year IT undergraduate at SLIIT with a passion for building intelligent software solutions.
+          Proficient in Python, Java, and C++, with hands-on experience in full-stack development, mobile applications, and
+          software testing. A problem-solver at heart, I thrive in dynamic environments, quickly adapting to new technologies
+          to create impactful solutions. Seeking an internship to contribute my technical expertise, analytical mindset, and
+          creativity to real-world projects while continuously expanding my skill set.
+        </motion.p>
+      </section>
+
       {/* Skills Section */}
       <section id="skills" className="py-20 px-4 bg-gray-800">
         <div className="container mx-auto text-center">
