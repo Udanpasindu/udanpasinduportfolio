@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Menu, Github, Linkedin, Mail } from "lucide-react";
 import profileImage from "./images/image1.jpg";
+import bgImage from "./images/bgimage.jpg"; // New background image
 import resume from "./Assets/Udanpasindujayasekara.pdf";
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: `url(${profileImage})`,
+          backgroundImage: `url(${bgImage})`, // Updated background image
           filter: "blur(8px)",
           WebkitFilter: "blur(8px)",
         }}
