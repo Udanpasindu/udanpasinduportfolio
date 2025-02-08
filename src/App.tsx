@@ -138,6 +138,20 @@ function App() {
               Projects
             </motion.h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <ProjectCard
+                title="Website for photographer"
+                description="Developed a React TypeScript portfolio website for a photographer, showcasing recent works, 
+                albums, and integrating EmailJS for client communication."
+                tech="React TypeScript"
+                link="https://github.com/Udanpasindu/web-site-for-photographer.git"
+              />
+              <ProjectCard
+                title="Portfolio website"
+                description="Developed a professional portfolio website using React and TypeScript, 
+                showcasing recent projects. Integrated contact functionality with EmailJS to facilitate client communication."
+                tech="React TypeScript"
+                link="https://github.com/Udanpasindu/web-site-for-photographer.git"
+              />
               <ProjectCard
                 title="Spice Management System"
                 description="Streamlines spice production and user purchasing with administrative tools."
