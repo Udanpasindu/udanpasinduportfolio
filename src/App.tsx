@@ -138,20 +138,21 @@ function App() {
               Projects
             </motion.h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ProjectCard
+              <ProjectCard
                 title="Website for photographer"
                 description="Developed a React TypeScript portfolio website for a photographer, showcasing recent works, 
                 albums, and integrating EmailJS for client communication."
                 tech="React TypeScript"
                 link="https://github.com/Udanpasindu/web-site-for-photographer.git"
+                deployedLink="https://web-site-for-photographer.vercel.app/"
               />
               <ProjectCard
                 title="Portfolio website"
                 description="Developed a professional portfolio website using React and TypeScript, 
-                showcasing recent projects. Integrated contact functionality with EmailJS to facilitate client communication.
-                https://www.udanpasindu.me/"
+                showcasing recent projects. Integrated contact functionality with EmailJS to facilitate client communication."
                 tech="React TypeScript"
                 link="https://github.com/Udanpasindu/udanpasinduportfolio.git"
+                deployedLink="https://www.udanpasindu.me/"
               />
               <ProjectCard
                 title="Spice Management System"
@@ -306,7 +307,7 @@ function SkillCard({ title, skills }: { title: string; skills: string[] }) {
 }
 
 // Project Card Component with Hover Animation
-function ProjectCard({ title, description, tech, link }: { title: string; description: string; tech: string; link: string }) {
+function ProjectCard({ title, description, tech, link, deployedLink }: { title: string; description: string; tech: string; link: string; deployedLink?: string }) {
   return (
     <motion.div 
       className="bg-gray-800/50 rounded-lg p-6 hover:transform hover:scale-105 transition duration-300"
@@ -315,9 +316,16 @@ function ProjectCard({ title, description, tech, link }: { title: string; descri
       <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
       <p className="text-gray-300 mb-4">{description}</p>
       <p className="text-blue-400 mb-4">{tech}</p>
-      <a href={link} target="_blank" rel="noopener noreferrer" className="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition">
-        View Project
-      </a>
+      <div className="flex gap-4">
+        <a href={link} target="_blank" rel="noopener noreferrer" className="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition">
+          View Code
+        </a>
+        {deployedLink && (
+          <a href={deployedLink} target="_blank" rel="noopener noreferrer" className="text-white bg-green-600 px-4 py-2 rounded hover:bg-green-700 transition">
+            Visit Deployed Site
+          </a>
+        )}
+      </div>
     </motion.div>
   );
 }
