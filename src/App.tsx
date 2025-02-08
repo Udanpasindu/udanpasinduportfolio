@@ -150,7 +150,7 @@ function App() {
                 description="Developed a professional portfolio website using React and TypeScript, 
                 showcasing recent projects. Integrated contact functionality with EmailJS to facilitate client communication."
                 tech="React TypeScript"
-                link="https://github.com/Udanpasindu/web-site-for-photographer.git"
+                link="https://github.com/Udanpasindu/udanpasinduportfolio.git"
               />
               <ProjectCard
                 title="Spice Management System"
