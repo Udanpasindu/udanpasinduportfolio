@@ -1,21 +1,56 @@
 import { motion } from "framer-motion";
-import { Menu, Github, Linkedin, Mail } from "lucide-react";
+import { Menu, Github, Linkedin, Mail, X } from "lucide-react"; // Added X icon for closing the menu
 import profileImage from "./images/image1.jpg";
-import bgImage from "./images/bgimage.jpg"; // New background image
+import bgImage1 from "./images/bgimage.jpg"; // Example background image 1
+import bgImage2 from "./images/bgimage.jpg"; // Example background image 2
+import bgImage3 from "./images/bgimage.jpg"; // Example background image 3
 import resume from "./Assets/Udanpasindujayasekara.pdf";
+import Slider from "react-slick"; // Import react-slick for the image slider
+import "slick-carousel/slick/slick.css"; // Default slick styles
+import "slick-carousel/slick/slick-theme.css"; // Default slick theme
+import { useState } from "react"; // For mobile menu toggle
 
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu
+
+  // Settings for the image slider
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    fade: true,
+    cssEase: "linear",
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 relative">
-      {/* Background Image with Blur Effect */}
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{
-          backgroundImage: `url(${profileImage})`, // Updated background image
-          filter: "blur(8px)",
-          WebkitFilter: "blur(8px)",
-        }}
-      ></div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 relative overflow-hidden">
+      {/* Background Image Slider */}
+      <div className="absolute inset-0 z-0">
+        <Slider {...sliderSettings}>
+          <div>
+            <div
+              className="w-full h-screen bg-cover bg-center"
+              style={{ backgroundImage: `url(${bgImage1})`, filter: "blur(8px)", WebkitFilter: "blur(8px)" }}
+            ></div>
+          </div>
+          <div>
+            <div
+              className="w-full h-screen bg-cover bg-center"
+              style={{ backgroundImage: `url(${bgImage2})`, filter: "blur(8px)", WebkitFilter: "blur(8px)" }}
+            ></div>
+          </div>
+          <div>
+            <div
+              className="w-full h-screen bg-cover bg-center"
+              style={{ backgroundImage: `url(${bgImage3})`, filter: "blur(8px)", WebkitFilter: "blur(8px)" }}
+            ></div>
+          </div>
+        </Slider>
+      </div>
 
       {/* Content */}
       <div className="relative z-10">
@@ -23,7 +58,21 @@ function App() {
         <header className="fixed w-full bg-black/30 backdrop-blur-sm z-50">
           <nav className="container mx-auto px-4 py-3 flex justify-between items-center">
             <h1 className="text-2xl font-bold text-white glitch-effect">Udan Pasindu</h1>
-            <Menu className="text-white md:hidden" />
+            {/* Mobile Menu Toggle */}
+            <div className="md:hidden">
+              {isMobileMenuOpen ? (
+                <X
+                  className="text-white cursor-pointer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                />
+              ) : (
+                <Menu
+                  className="text-white cursor-pointer"
+                  onClick={() => setIsMobileMenuOpen(true)}
+                />
+              )}
+            </div>
+            {/* Desktop Menu */}
             <div className="hidden md:flex gap-6 text-gray-300">
               <a href="#home" className="hover:text-blue-400 transition">Home</a>
               <a href="#about" className="hover:text-blue-400 transition">About Me</a>
@@ -32,6 +81,16 @@ function App() {
               <a href="#contact" className="hover:text-blue-400 transition">Contact</a>
             </div>
           </nav>
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden bg-black/70 backdrop-blur-sm p-4">
+              <a href="#home" className="block text-white py-2 hover:text-blue-400" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+              <a href="#about" className="block text-white py-2 hover:text-blue-400" onClick={() => setIsMobileMenuOpen(false)}>About Me</a>
+              <a href="#skills" className="block text-white py-2 hover:text-blue-400" onClick={() => setIsMobileMenuOpen(false)}>Skills</a>
+              <a href="#projects" className="block text-white py-2 hover:text-blue-400" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
+              <a href="#contact" className="block text-white py-2 hover:text-blue-400" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+            </div>
+          )}
         </header>
 
         {/* Hero Section */}
@@ -284,7 +343,7 @@ function App() {
   );
 }
 
-// Skill Card Component with Glowing Effect
+// Skill Card Component
 function SkillCard({ title, skills }: { title: string; skills: string[] }) {
   return (
     <motion.div 
@@ -295,7 +354,6 @@ function SkillCard({ title, skills }: { title: string; skills: string[] }) {
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-30 blur-lg rounded-lg"></div>
-
       <h3 className="text-2xl font-bold text-white mb-4 relative z-10">{title}</h3>
       <ul className="text-gray-300 space-y-2 relative z-10">
         {skills.map((skill) => (
@@ -306,7 +364,7 @@ function SkillCard({ title, skills }: { title: string; skills: string[] }) {
   );
 }
 
-// Project Card Component with Hover Animation
+// Project Card Component
 function ProjectCard({ title, description, tech, link, deployedLink }: { title: string; description: string; tech: string; link: string; deployedLink?: string }) {
   return (
     <motion.div 
