@@ -11,7 +11,7 @@ function App() {
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: `url(${bgImage})`, // Updated background image
+          backgroundImage: `url(${profileImage})`, // Updated background image
           filter: "blur(8px)",
           WebkitFilter: "blur(8px)",
         }}
