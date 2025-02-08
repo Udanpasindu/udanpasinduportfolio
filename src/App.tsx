@@ -148,7 +148,8 @@ function App() {
               <ProjectCard
                 title="Portfolio website"
                 description="Developed a professional portfolio website using React and TypeScript, 
-                showcasing recent projects. Integrated contact functionality with EmailJS to facilitate client communication."
+                showcasing recent projects. Integrated contact functionality with EmailJS to facilitate client communication.
+                https://www.udanpasindu.me/"
                 tech="React TypeScript"
                 link="https://github.com/Udanpasindu/udanpasinduportfolio.git"
               />
