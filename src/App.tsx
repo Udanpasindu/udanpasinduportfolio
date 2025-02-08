@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { Menu, Github, Linkedin, Mail } from "lucide-react";
 import profileImage from "./images/image1.jpg";
 import resume from "./Assets/Udanpasindujayasekara.pdf";
+import backgroundImage from "./images/image1.jpg"; // Add your background image
 
 function App() {
   return (
+    
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
       {/* Header */}
       <header className="fixed w-full bg-black/30 backdrop-blur-sm z-50">
