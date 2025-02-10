@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
 import emailjs from 'emailjs-com';
 
+
 // Initialize EmailJS with your Public Key
 emailjs.init('prdfjDCGNQCSjo4LK');
 
@@ -32,7 +33,6 @@ function App() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Use your Service ID, Template ID, and Public Key
     emailjs.sendForm('service_77ce91g', 'template_m8eclgi', e.currentTarget, 'prdfjDCGNQCSjo4LK')
       .then((result) => {
         console.log(result.text);
@@ -97,6 +97,7 @@ function App() {
               <a href="#about" className="hover:text-blue-400 transition">About Me</a>
               <a href="#skills" className="hover:text-blue-400 transition">Skills</a>
               <a href="#projects" className="hover:text-blue-400 transition">Projects</a>
+              <a href="#education" className="hover:text-blue-400 transition">Education</a> {/* Added Education Link */}
               <a href="#contact" className="hover:text-blue-400 transition">Contact</a>
             </div>
           </nav>
@@ -107,6 +108,7 @@ function App() {
               <a href="#about" className="block text-white py-2 hover:text-blue-400" onClick={() => setIsMobileMenuOpen(false)}>About Me</a>
               <a href="#skills" className="block text-white py-2 hover:text-blue-400" onClick={() => setIsMobileMenuOpen(false)}>Skills</a>
               <a href="#projects" className="block text-white py-2 hover:text-blue-400" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
+              <a href="#education" className="block text-white py-2 hover:text-blue-400" onClick={() => setIsMobileMenuOpen(false)}>Education</a> {/* Added Education Link */}
               <a href="#contact" className="block text-white py-2 hover:text-blue-400" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
             </div>
           )}
@@ -275,6 +277,55 @@ function App() {
           </div>
         </section>
 
+        {/* Education Section */}
+        <section id="education" className="py-20 px-4 bg-gray-800/70">
+          <div className="container mx-auto text-center">
+            <motion.h2
+              className="text-3xl font-bold text-white mb-12"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+            >
+              Education
+            </motion.h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Rahula College Matara */}
+              <motion.div
+                className="bg-gray-800/50 rounded-lg p-6"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <img
+                  src="src\images\rahula.png" // Rahula College Logo
+                  alt="Rahula College Matara"
+                  className="w-24 h-24 mx-auto mb-4"
+                />
+                <h3 className="text-2xl font-bold text-white mb-2">Rahula College Matara</h3>
+                <p className="text-gray-300 mb-2">2007 - 2020</p>
+                <p className="text-gray-400">Secondary Education</p>
+              </motion.div>
+
+              {/* SLIIT */}
+              <motion.div
+                className="bg-gray-800/50 rounded-lg p-6"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <img
+                  src="src\images\sliit.png" // SLIIT Logo
+                  alt="SLIIT"
+                  className="w-24 h-24 mx-auto mb-4"
+                />
+                <h3 className="text-2xl font-bold text-white mb-2">Sri Lanka Institute of Information Technology (SLIIT)</h3>
+                <p className="text-gray-300 mb-2">2021 - Present</p>
+                <p className="text-gray-400">BSc (Hons) in Information Technology</p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Contact Section */}
         <section id="contact" className="py-20 px-4 bg-gray-800/70">
           <div className="container mx-auto text-center">
@@ -317,6 +368,7 @@ function App() {
                 </motion.div>
               </a>
             </div>
+
 
             {/* Contact Form */}
             <motion.div
