@@ -178,7 +178,7 @@ function App() {
             transition={{ duration: 1 }}
           >
             Innovative and driven third-year IT undergraduate at SLIIT with a passion for building intelligent software solutions.
-            Proficient in Java, and C++, with hands-on experience in full-stack development, mobile applications, and
+            Proficient in React, TypeScript, JavaScript, Java, and C++, with hands-on experience in full-stack development, mobile applications, and
             software testing. A problem-solver at heart, I thrive in dynamic environments, quickly adapting to new technologies
             to create impactful solutions. Seeking an internship to contribute my technical expertise, analytical mindset, and
             creativity to real-world projects while continuously expanding my skill set.
