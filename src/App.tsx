@@ -281,6 +281,7 @@ function App() {
           </div>
         </section>
 
+        
         {/* Education Section */}
         <section id="education" className="py-20 px-4 bg-gray-800/70">
           <div className="container mx-auto text-center">
@@ -301,7 +302,7 @@ function App() {
                 transition={{ duration: 1 }}
               >
                 <img
-                  src="src\images\rahula.png" // Rahula College Logo
+                  src={rahulaLogo} // Rahula College logo
                   alt="Rahula College Matara"
                   className="w-24 h-24 mx-auto mb-4"
                 />
@@ -318,18 +319,18 @@ function App() {
                 transition={{ duration: 1 }}
               >
                 <img
-                  src="src\images\sliit.png" // SLIIT Logo
+                  src={sliitLogo} // SLIIT logo
                   alt="SLIIT"
                   className="w-24 h-24 mx-auto mb-4"
                 />
                 <h3 className="text-2xl font-bold text-white mb-2">Sri Lanka Institute of Information Technology (SLIIT)</h3>
                 <p className="text-gray-300 mb-2">2021 - Present</p>
-                <p className="text-gray-400">BSc (Hons) in Information Technology</p>
+                <p className="text-gray-400">BSc (Hons) in Software Engineering</p>
               </motion.div>
             </div>
           </div>
         </section>
-
+        
         {/* Contact Section */}
         <section id="contact" className="py-20 px-4 bg-gray-800/70">
           <div className="container mx-auto text-center">
