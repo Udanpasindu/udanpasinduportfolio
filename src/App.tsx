@@ -11,6 +11,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
 import emailjs from 'emailjs-com';
 
+// Import logos
+import rahulaLogo from "./images/rahula.png"; // Rahula College logo
+import sliitLogo from "./images/sliit.png"; // SLIIT logo
+
 
 // Initialize EmailJS with your Public Key
 emailjs.init('prdfjDCGNQCSjo4LK');
