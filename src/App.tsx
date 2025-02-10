@@ -1,20 +1,22 @@
 import { motion } from "framer-motion";
-import { Menu, Github, Linkedin, Mail, X } from "lucide-react"; // Added X icon for closing the menu
+import { Menu, Github, Linkedin, Mail, X } from "lucide-react";
 import profileImage from "./images/image1.jpg";
-import bgImage1 from "./images/bgimage.jpg"; // Example background image 1
-import bgImage2 from "./images/bgimage.jpg"; // Example background image 2
-import bgImage3 from "./images/bgimage.jpg"; // Example background image 3
+import bgImage1 from "./images/bgimage.jpg";
+import bgImage2 from "./images/bgimage.jpg";
+import bgImage3 from "./images/bgimage.jpg";
 import resume from "./Assets/Udanpasindujayasekara.pdf";
-import Slider from "react-slick"; // Import react-slick for the image slider
-import "slick-carousel/slick/slick.css"; // Default slick styles
-import "slick-carousel/slick/slick-theme.css"; // Default slick theme
-import { useState } from "react"; // For mobile menu toggle
-import emailjs from 'emailjs-com'; // Import EmailJS
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useState } from "react";
+import emailjs from 'emailjs-com';
+
+// Initialize EmailJS with your Public Key
+emailjs.init('prdfjDCGNQCSjo4LK');
 
 function App() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Settings for the image slider
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -27,12 +29,11 @@ function App() {
     cssEase: "linear",
   };
 
-  // EmailJS Integration
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Replace with your Template ID and Public Key
-    emailjs.sendForm('YOUR_SERVICE_ID', 'template_m8eclgi', e.currentTarget, 'prdfjDCGNQCSjo4LK')
+    // Use your Service ID, Template ID, and Public Key
+    emailjs.sendForm('service_77ce91g', 'template_m8eclgi', e.currentTarget, 'prdfjDCGNQCSjo4LK')
       .then((result) => {
         console.log(result.text);
         alert("Message Sent Successfully!");
