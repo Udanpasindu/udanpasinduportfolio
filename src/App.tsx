@@ -9,6 +9,7 @@ import Slider from "react-slick"; // Import react-slick for the image slider
 import "slick-carousel/slick/slick.css"; // Default slick styles
 import "slick-carousel/slick/slick-theme.css"; // Default slick theme
 import { useState } from "react"; // For mobile menu toggle
+import emailjs from 'emailjs-com'; // Import EmailJS
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu
@@ -24,6 +25,23 @@ function App() {
     autoplaySpeed: 3000,
     fade: true,
     cssEase: "linear",
+  };
+
+  // EmailJS Integration
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Replace with your Template ID and Public Key
+    emailjs.sendForm('YOUR_SERVICE_ID', 'template_m8eclgi', e.currentTarget, 'prdfjDCGNQCSjo4LK')
+      .then((result) => {
+        console.log(result.text);
+        alert("Message Sent Successfully!");
+      }, (error) => {
+        console.log(error.text);
+        alert("Failed to send the message, please try again.");
+      });
+
+    e.currentTarget.reset();
   };
 
   return (
@@ -306,18 +324,21 @@ function App() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <form>
+              <form onSubmit={sendEmail}>
                 <input
                   type="text"
+                  name="from_name"
                   placeholder="Your Name"
                   className="w-full p-3 mb-4 rounded-md bg-gray-600 text-white"
                 />
                 <input
                   type="email"
+                  name="from_email"
                   placeholder="Your Email"
                   className="w-full p-3 mb-4 rounded-md bg-gray-600 text-white"
                 />
                 <textarea
+                  name="message"
                   placeholder="Your Message"
                   className="w-full p-3 mb-4 rounded-md bg-gray-600 text-white"
                 />
