@@ -247,6 +247,17 @@ function App() {
                 isDarkTheme={isDarkTheme}
               />
               <ProjectCard
+                title="Website for Restaurant"
+                description="Developed a responsive restaurant website using React and TypeScript with a modern, u
+                ser-friendly interface. Designed an intuitive layout to showcase the menu, services, and special 
+                offers. Integrated an Order Now button linking to 
+                WhatsApp Business for easy ordering. Ensured smooth navigation, responsiveness, and performance optimization 
+                for better user engagement."
+                tech="React TypeScript"
+                link="https://github.com/Udanpasindu/Web-site-for-Restaurant.git"
+                isDarkTheme={isDarkTheme}
+              />
+              <ProjectCard
                 title="Portfolio website"
                 description="Developed a professional portfolio website using React and TypeScript, 
                 showcasing recent projects. Integrated contact functionality with EmailJS to facilitate client communication."
