@@ -9,6 +9,7 @@ module.exports = {
         glow: "glow 1.5s infinite alternate",
         float: "float 3s ease-in-out infinite",
       },
+      
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },
@@ -37,4 +38,5 @@ module.exports = {
     },
   },
   plugins: [],
+  
 };
