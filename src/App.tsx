@@ -296,7 +296,7 @@ function App() {
               <EducationCard
                 logo={sliitLogo}
                 title="SLIIT"
-                period="2021 - Present"
+                period="2022 - Present"
                 description="BSc (Hons) in Information Technology"
                 isDarkTheme={isDarkTheme}
               />
