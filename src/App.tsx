@@ -345,7 +345,7 @@ function App() {
         {/* Footer */}
         <footer className={`${isDarkTheme ? 'bg-black/30' : 'bg-white/30'} py-8`}>
           <div className="container mx-auto px-4 text-center">
-            <p className={isDarkTheme ? 'text-gray-400' : 'text-gray-700'}>© 2024 Udan Pasindu. All rights reserved.</p>
+            <p className={isDarkTheme ? 'text-gray-400' : 'text-gray-700'}>© 2025 Udan Pasindu. All rights reserved.</p>
           </div>
         </footer>
       </div>
