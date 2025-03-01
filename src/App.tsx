@@ -16,6 +16,9 @@ import emailjs from 'emailjs-com';
 import rahulaLogo from "./images/rahula.png";
 import sliitLogo from "./images/sliit.png";
 
+// Import project images
+import spiceManagementImage from "./images/sahangrinding.jpeg"; // Add this import
+
 // Initialize EmailJS
 emailjs.init('prdfjDCGNQCSjo4LK');
 
@@ -238,6 +241,7 @@ function App() {
                 description="Streamlines spice production and user purchasing with administrative tools using MERN stack."
                 tech="MERN Stack"
                 link="https://github.com/Udanpasindu/Spice-Management-System.git"
+                image={spiceManagementImage} // Add image here
                 isDarkTheme={isDarkTheme}
               />
               <ProjectCard
@@ -365,9 +369,18 @@ function SkillCard({ title, skills, isDarkTheme }: { title: string; skills: stri
   );
 }
 
-function ProjectCard({ title, description, tech, link, deployedLink, isDarkTheme }: { title: string; description: string; tech: string; link: string; deployedLink?: string; isDarkTheme: boolean }) {
+function ProjectCard({ title, description, tech, link, deployedLink, image, isDarkTheme }: { title: string; description: string; tech: string; link: string; deployedLink?: string; image?: string; isDarkTheme: boolean }) {
   return (
     <motion.div className={`${isDarkTheme ? 'bg-gray-800/50' : 'bg-gray-200/50'} p-6 rounded-lg`}>
+      {image && (
+        <div className="mb-4">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-48 object-cover rounded-lg"
+          />
+        </div>
+      )}
       <h3 className={`text-xl font-bold ${isDarkTheme ? 'text-white' : 'text-gray-900'} mb-3`}>{title}</h3>
       <p className={`${isDarkTheme ? 'text-gray-300' : 'text-gray-700'} mb-4`}>{description}</p>
       <p className={`${isDarkTheme ? 'text-blue-400' : 'text-blue-600'} mb-4`}>{tech}</p>
