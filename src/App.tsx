@@ -19,6 +19,7 @@ import sliitLogo from "./images/sliit.png";
 // Import project images
 import spiceManagementImage from "./images/sahangrinding.jpeg"; // Spice Management System image
 import websitePhotographerImage from "./images/websitephotographer.png"; // Website for Photographer image
+import restaurantWebImage from "./images/restaurantweb.png"; // Website for Restaurant image
 
 // Initialize EmailJS
 emailjs.init('prdfjDCGNQCSjo4LK');
@@ -228,6 +229,7 @@ function App() {
                 description="Developed a responsive restaurant website using React and TypeScript with modern UI. Integrated WhatsApp Business ordering system and optimized performance."
                 tech="React TypeScript"
                 link="https://github.com/Udanpasindu/Web-site-for-Restaurant.git"
+                image={restaurantWebImage} // Add image here
                 isDarkTheme={isDarkTheme}
               />
               <ProjectCard
