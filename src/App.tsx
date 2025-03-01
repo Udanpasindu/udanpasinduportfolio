@@ -17,7 +17,8 @@ import rahulaLogo from "./images/rahula.png";
 import sliitLogo from "./images/sliit.png";
 
 // Import project images
-import spiceManagementImage from "./images/sahangrinding.jpeg"; // Add this import
+import spiceManagementImage from "./images/sahangrinding.jpeg"; // Spice Management System image
+import websitePhotographerImage from "./images/websitephotographer.png"; // Website for Photographer image
 
 // Initialize EmailJS
 emailjs.init('prdfjDCGNQCSjo4LK');
@@ -219,6 +220,7 @@ function App() {
                 tech="React TypeScript"
                 link="https://github.com/Udanpasindu/web-site-for-photographer.git"
                 deployedLink="https://web-site-for-photographer.vercel.app/"
+                image={websitePhotographerImage} // Add image here
                 isDarkTheme={isDarkTheme}
               />
               <ProjectCard
